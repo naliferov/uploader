@@ -32,7 +32,5 @@ func display(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", display)
 	http.HandleFunc("/upload", uploadFile)
-
 	http.ListenAndServe(":8080", nil)
-	//cmd.Execute()
 }
