@@ -8,12 +8,12 @@ import (
 )
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
-	// Maximum upload of 10 MB files
+
+	// Maximum upload of 2 MB files
 	r.ParseMultipartForm(2 << 20)
-
 	fhs := r.MultipartForm.File["uploads"]
-	for _, fh := range fhs {
 
+	for _, fh := range fhs {
 		tempFile, _ := fh.Open()
 		newFile, err := os.OpenFile("./"+fh.Filename, os.O_WRONLY|os.O_CREATE, 0666)
 		if err != nil {
