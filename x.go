@@ -9,8 +9,7 @@ import (
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
 
-	// Maximum upload of 2 MB files
-	r.ParseMultipartForm(2 << 20)
+	r.ParseMultipartForm(1)
 	fhs := r.MultipartForm.File["uploads"]
 
 	for _, fh := range fhs {
